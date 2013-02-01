@@ -1,0 +1,11 @@
+* {
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+.left{
+	float:left;
+	margin:30px;
+	width:300px;
+};

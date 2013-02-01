@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/main.css">
+
+         <script src="js/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <div class="left">
+            <h3>Object Literal Notation</h3>
+            <img src="img/1.jpg" id="main">
+            <p>
+                <button onclick="Gallery.Prev();">Previous</button>
+                <button onclick="Gallery.Next();">Next</button>
+            </p>
+        </div>
+        <div class="left">
+            <h3>Class - Prototype</h3>
+            <img src="img/1.jpg" id="main2">
+            <p>
+                <button onclick="GalleryObj.Prev();">Previous</button>
+                <button onclick="GalleryObj.Next();">Next</button>
+            </p>
+        </div>
+    </body>
+
+        <script>
+        if (document.location.hostname == "localhost"){
+             document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+          }
+    </script>
+</html>
