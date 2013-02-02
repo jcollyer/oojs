@@ -36,46 +36,50 @@ window.onload = function(){
 
 
 
-
+$(document).ready(function(){
 //wrapper function for scope
 function prototypeGallery(){
 
-//Class - Prototype 
-function GalleryObj(){
-	this.Images = ['1.jpg','2.jpg','3.jpg'];
-	this.CurrentIndex = 0;
-	this._loopInterval = setInterval(this.Next, 2500);
+	//Class - Prototype 
+	function GalleryObj(){
+		this.Images = ['1.jpg','2.jpg','3.jpg'];
+		this.CurrentIndex = 0;
+		this._loopInterval = setInterval(this.Next, 2500);
+	}
+
+	GalleryObj.prototype.Next = function(){
+		if(Gallery.CurrentIndex < (Gallery.Images.length-1)){
+			Gallery.CurrentIndex++;
+		}else{
+			Gallery.CurrentIndex = 0;
+		}
+		Gallery.Display();
+	};
+
+	GalleryObj.prototype.Prev = function(){
+		if(Gallery.CurrentIndex > 0){
+			Gallery.CurrentIndex--;
+		}else{
+			Gallery.CurrentIndex = (Gallery.Images.length-1)
+		}
+		Gallery.Display();
+	};
+	GalleryObj.prototype.Display = function(){
+		var photoGallery = document.getElementById('main2');
+		var currentImage = Gallery.Images[Gallery.CurrentIndex];
+		photoGallery.src = "img/"+currentImage;
+	};
+
+	var Gallery = new GalleryObj();
+
+	$('.next').click(function(){Gallery.Next()});
+	$('.prev').click(function(){Gallery.Prev();});
+
 }
 
-GalleryObj.prototype.Next = function(){
-	if(Gallery.CurrentIndex < (Gallery.Images.length-1)){
-		Gallery.CurrentIndex++;
-	}else{
-		Gallery.CurrentIndex = 0;
-	}
-	Gallery.Display();
-};
-
-GalleryObj.prototype.Prev = function(){
-	if(Gallery.CurrentIndex > 0){
-		Gallery.CurrentIndex--;
-	}else{
-		Gallery.CurrentIndex = (Gallery.Images.length-1)
-	}
-	Gallery.Display();
-};
-GalleryObj.prototype.Display = function(){
-	var photoGallery = document.getElementById('main2');
-	var currentImage = Gallery.Images[Gallery.CurrentIndex];
-	photoGallery.src = "img/"+currentImage;
-};
-
-var Gallery = new GalleryObj();
-
-}
 prototypeGallery();
 
-$(document).ready(function(){
+
 
 	// for (var i=1; i<101; i++){
 	// 	var f = i % 3 == 0;
